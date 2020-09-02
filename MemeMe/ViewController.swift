@@ -21,7 +21,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     @IBOutlet weak var bottomTextFieldBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    
     var defaultTopText : String = ""
     var defaultBottomText : String = ""
     
@@ -33,10 +36,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
+        
         updateUI(isPortrait: UIDevice.current.orientation.isPortrait)
+        
         subscribeToKeyboardNotifications()
+        
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        
+        if let _ = imagePickerView.image {
+            shareButton.isEnabled = true
+        } else {
+            shareButton.isEnabled = false
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -187,6 +200,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage? {
             imagePickerView.image = image
+            shareButton.isEnabled = true
         }
         
         dismiss(animated: true, completion: nil)
@@ -197,6 +211,19 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         
         dismiss(animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func cancelAction(_ sender: Any) {
+        
+        if imagePickerView.image != nil {
+            
+            self.imagePickerView.image = nil
+            topTextField.text = defaultTopText
+            bottomTextField.text = defaultBottomText
+            self.shareButton.isEnabled = false
+            
+        }
         
     }
     

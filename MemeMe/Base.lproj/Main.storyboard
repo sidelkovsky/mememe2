@@ -90,12 +90,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="PMP-pf-aaG"/>
+                    <navigationItem key="navigationItem" id="PMP-pf-aaG">
+                        <barButtonItem key="leftBarButtonItem" image="square.and.arrow.up" catalog="system" id="MIv-rG-u3n" userLabel="Share Button"/>
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="BWP-ci-GBa" userLabel="Cancel Button">
+                            <connections>
+                                <action selector="cancelAction:" destination="BYZ-38-t0r" id="xCI-b3-QzC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomTextField" destination="rE4-Tq-ziC" id="tk4-U8-FCA"/>
                         <outlet property="bottomTextFieldBottomConstraint" destination="U5C-A0-ptV" id="xSz-3M-16B"/>
                         <outlet property="cameraButton" destination="e1v-4o-HFc" id="y03-AR-Ued"/>
                         <outlet property="imagePickerView" destination="xF0-wo-sqb" id="wFQ-QL-HEL"/>
+                        <outlet property="shareButton" destination="MIv-rG-u3n" id="zEs-1P-NQf"/>
                         <outlet property="topTextField" destination="jax-Wz-IPl" id="6Dp-Sp-PcS"/>
                         <outlet property="topTextFieldTopConstraint" destination="9bf-kS-W4M" id="Brc-tB-FOC"/>
                     </connections>
@@ -107,5 +115,6 @@
     </scenes>
     <resources>
         <image name="camera" catalog="system" width="128" height="96"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
     </resources>
 </document>
