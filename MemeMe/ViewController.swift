@@ -19,9 +19,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var bottomTextFieldBottomConstraint: NSLayoutConstraint!
     
+    var defaultTopText : String = ""
+    var defaultBottomText : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        defaultTopText = topTextField.text!
+        defaultBottomText = bottomTextField.text!
+        print(defaultBottomText)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -125,6 +131,37 @@ class ViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
         
+    }
+    
+    // MARK: Editing Text Fields
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        if (textField == topTextField && textField.text == defaultTopText) || ( textField == bottomTextField && textField.text == defaultBottomText) {
+            textField.text = ""
+        }
+        
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        var text = textField.text as NSString?
+        text = text!.replacingCharacters(in: range, with: string) as NSString?
+        
+        textField.text = text?.uppercased
+        return false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if textField == topTextField && textField.text!.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            
+            textField.text = defaultTopText;
+            
+        }else if textField == bottomTextField && textField.text!.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            
+            textField.text = defaultBottomText;
+        }
     }
     
 }
