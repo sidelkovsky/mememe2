@@ -214,6 +214,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
     }
     
+    // MARK: Share and Cancel Actions
+    
     @IBAction func cancelAction(_ sender: Any) {
         
         if imagePickerView.image != nil {
@@ -227,4 +229,38 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
     }
     
+    @IBAction func shareAction(_ sender: Any) {
+        
+        let memedImage: UIImage = generateMemedImage()
+        
+        let shareSheet = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        
+        shareSheet.completionWithItemsHandler = { (_, completed, _, _) in
+            if (completed) {
+                self.save(memedImage: memedImage)
+            }
+        }
+        present(shareSheet, animated: true, completion: nil)
+        
+    }
+    
+    // MARK: Creating Meme Object and Saving Image
+    
+    func save(memedImage: UIImage) {
+        
+        _ = Meme(topText: topTextField.text! as NSString, bottomText: bottomTextField.text! as NSString,  originalImage: imagePickerView.image, memedImage: memedImage)
+        
+    }
+    
+    func generateMemedImage() -> UIImage {
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return memedImage
+    }
+
 }

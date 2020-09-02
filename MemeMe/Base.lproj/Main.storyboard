@@ -91,7 +91,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="PMP-pf-aaG">
-                        <barButtonItem key="leftBarButtonItem" image="square.and.arrow.up" catalog="system" id="MIv-rG-u3n" userLabel="Share Button"/>
+                        <barButtonItem key="leftBarButtonItem" image="square.and.arrow.up" catalog="system" id="MIv-rG-u3n" userLabel="Share Button">
+                            <connections>
+                                <action selector="shareAction:" destination="BYZ-38-t0r" id="eY9-vS-qxn"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="BWP-ci-GBa" userLabel="Cancel Button">
                             <connections>
                                 <action selector="cancelAction:" destination="BYZ-38-t0r" id="xCI-b3-QzC"/>
