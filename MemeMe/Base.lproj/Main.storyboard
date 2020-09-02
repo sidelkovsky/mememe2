@@ -83,6 +83,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="PMP-pf-aaG"/>
+                    <connections>
+                        <outlet property="bottomTextField" destination="rE4-Tq-ziC" id="tk4-U8-FCA"/>
+                        <outlet property="bottomTextFieldBottomConstraint" destination="U5C-A0-ptV" id="xSz-3M-16B"/>
+                        <outlet property="topTextField" destination="jax-Wz-IPl" id="6Dp-Sp-PcS"/>
+                        <outlet property="topTextFieldTopConstraint" destination="9bf-kS-W4M" id="Brc-tB-FOC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
