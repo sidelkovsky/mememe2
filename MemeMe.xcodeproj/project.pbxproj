@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C021FEBACD68C7A2AD9F668 /* Pods_MemeMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD323F9797A60521585C6A8 /* Pods_MemeMe.framework */; };
 		ED11548924FE788A006B6BBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11548824FE788A006B6BBE /* AppDelegate.swift */; };
 		ED11548B24FE788A006B6BBE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11548A24FE788A006B6BBE /* SceneDelegate.swift */; };
 		ED11548D24FE788A006B6BBE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED11548C24FE788A006B6BBE /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6042D9A2940441C374386BC2 /* Pods-MemeMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeMe.release.xcconfig"; path = "Target Support Files/Pods-MemeMe/Pods-MemeMe.release.xcconfig"; sourceTree = "<group>"; };
+		AAD323F9797A60521585C6A8 /* Pods_MemeMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemeMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2C66D972143505C546567AE /* Pods-MemeMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemeMe.debug.xcconfig"; path = "Target Support Files/Pods-MemeMe/Pods-MemeMe.debug.xcconfig"; sourceTree = "<group>"; };
 		ED11548524FE788A006B6BBE /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED11548824FE788A006B6BBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED11548A24FE788A006B6BBE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C021FEBACD68C7A2AD9F668 /* Pods_MemeMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		048F5FD204AD62E77161627A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AAD323F9797A60521585C6A8 /* Pods_MemeMe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5B89622BF4448EB3598DC85 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E2C66D972143505C546567AE /* Pods-MemeMe.debug.xcconfig */,
+				6042D9A2940441C374386BC2 /* Pods-MemeMe.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		ED11547C24FE788A006B6BBE = {
 			isa = PBXGroup;
 			children = (
 				ED11548724FE788A006B6BBE /* MemeMe */,
 				ED11548624FE788A006B6BBE /* Products */,
+				E5B89622BF4448EB3598DC85 /* Pods */,
+				048F5FD204AD62E77161627A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED11549924FE788D006B6BBE /* Build configuration list for PBXNativeTarget "MemeMe" */;
 			buildPhases = (
+				07C699406288F3D5164DCBD4 /* [CP] Check Pods Manifest.lock */,
 				ED11548124FE788A006B6BBE /* Sources */,
 				ED11548224FE788A006B6BBE /* Frameworks */,
 				ED11548324FE788A006B6BBE /* Resources */,
+				7783A04B8E9BDD2E208B7D98 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07C699406288F3D5164DCBD4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MemeMe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7783A04B8E9BDD2E208B7D98 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MemeMe/Pods-MemeMe-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MemeMe/Pods-MemeMe-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MemeMe/Pods-MemeMe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ED11548124FE788A006B6BBE /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		ED11549A24FE788D006B6BBE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2C66D972143505C546567AE /* Pods-MemeMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -301,6 +371,7 @@
 		};
 		ED11549B24FE788D006B6BBE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6042D9A2940441C374386BC2 /* Pods-MemeMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
