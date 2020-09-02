@@ -31,7 +31,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xF0-wo-sqb" userLabel="Image Picker View">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xF0-wo-sqb" userLabel="Image Picker View">
                                 <rect key="frame" x="0.0" y="44" width="375" height="579"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
@@ -39,9 +39,17 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="K0L-9g-Ue7"/>
-                                    <barButtonItem image="camera" catalog="system" id="e1v-4o-HFc" userLabel="Button Camera"/>
+                                    <barButtonItem image="camera" catalog="system" id="e1v-4o-HFc" userLabel="Button Camera">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="KjW-EA-J08"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="uoA-Pt-UGw"/>
-                                    <barButtonItem title="Album" id="yeg-3X-VPA" userLabel="Button Gallery"/>
+                                    <barButtonItem title="Album" id="yeg-3X-VPA" userLabel="Button Album">
+                                        <connections>
+                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="wks-K8-KbB"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="JPo-7i-rPX"/>
                                 </items>
                             </toolbar>
@@ -86,6 +94,8 @@
                     <connections>
                         <outlet property="bottomTextField" destination="rE4-Tq-ziC" id="tk4-U8-FCA"/>
                         <outlet property="bottomTextFieldBottomConstraint" destination="U5C-A0-ptV" id="xSz-3M-16B"/>
+                        <outlet property="cameraButton" destination="e1v-4o-HFc" id="y03-AR-Ued"/>
+                        <outlet property="imagePickerView" destination="xF0-wo-sqb" id="wFQ-QL-HEL"/>
                         <outlet property="topTextField" destination="jax-Wz-IPl" id="6Dp-Sp-PcS"/>
                         <outlet property="topTextFieldTopConstraint" destination="9bf-kS-W4M" id="Brc-tB-FOC"/>
                     </connections>

@@ -9,7 +9,9 @@
 import UIKit
 import Device
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
+    @IBOutlet weak var imagePickerView: UIImageView!
     
     @IBOutlet weak var topTextField: UITextField!
     
@@ -19,6 +21,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var bottomTextFieldBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     var defaultTopText : String = ""
     var defaultBottomText : String = ""
     
@@ -27,13 +30,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         defaultTopText = topTextField.text!
         defaultBottomText = bottomTextField.text!
-        print(defaultBottomText)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateUI(isPortrait: UIDevice.current.orientation.isPortrait)
         subscribeToKeyboardNotifications()
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -162,6 +165,39 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             textField.text = defaultBottomText;
         }
+    }
+    
+    // MARK: Selecting an Image
+    
+    @IBAction func pickAnImageFromCamera(_ sender: Any) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.sourceType = .camera
+        present(pickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func pickAnImageFromAlbum(_ sender: Any) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.sourceType = .photoLibrary
+        present(pickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage? {
+            imagePickerView.image = image
+        }
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
+        dismiss(animated: true, completion: nil)
+        
     }
     
 }
