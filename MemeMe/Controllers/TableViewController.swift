@@ -10,6 +10,10 @@ import UIKit
 
 class TableViewController:UITableViewController {
     
-    
+    @IBAction func createMeme(_ sender: Any) {
+        
+        presentMemeCreator()
+        
+    }
     
 }

@@ -202,8 +202,7 @@ class CreateMemeViewController: UIViewController, UITextFieldDelegate, UIImagePi
             imagePickerView.image = image
             shareButton.isEnabled = true
         }
-        
-        dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
         
     }
     
@@ -218,14 +217,7 @@ class CreateMemeViewController: UIViewController, UITextFieldDelegate, UIImagePi
     
     @IBAction func cancelAction(_ sender: Any) {
         
-        if imagePickerView.image != nil {
-            
-            self.imagePickerView.image = nil
-            topTextField.text = defaultTopText
-            bottomTextField.text = defaultBottomText
-            self.shareButton.isEnabled = false
-            
-        }
+        dismiss(animated: true, completion: nil)
         
     }
     
@@ -240,6 +232,7 @@ class CreateMemeViewController: UIViewController, UITextFieldDelegate, UIImagePi
                 self.save(memedImage: memedImage)
             }
         }
+//        
         present(shareSheet, animated: true, completion: nil)
         
     }

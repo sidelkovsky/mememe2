@@ -16,6 +16,7 @@
 		ED11549524FE788D006B6BBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED11549324FE788D006B6BBE /* LaunchScreen.storyboard */; };
 		ED5152DF254723090071B394 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5152DE254723090071B394 /* TableViewController.swift */; };
 		ED5152E2254723150071B394 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5152E1254723150071B394 /* CollectionViewController.swift */; };
+		ED5152E625477C090071B394 /* UIViewController+MemeMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5152E525477C090071B394 /* UIViewController+MemeMe.swift */; };
 		EDEE4D8924FFDBEA009076E4 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEE4D8824FFDBEA009076E4 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		ED11549624FE788D006B6BBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED5152DE254723090071B394 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		ED5152E1254723150071B394 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		ED5152E525477C090071B394 /* UIViewController+MemeMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+MemeMe.swift"; sourceTree = "<group>"; };
 		EDEE4D8824FFDBEA009076E4 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 				ED11548C24FE788A006B6BBE /* CreateMemeViewController.swift */,
 				ED5152DE254723090071B394 /* TableViewController.swift */,
 				ED5152E1254723150071B394 /* CollectionViewController.swift */,
+				ED5152E525477C090071B394 /* UIViewController+MemeMe.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				ED11548924FE788A006B6BBE /* AppDelegate.swift in Sources */,
 				ED5152DF254723090071B394 /* TableViewController.swift in Sources */,
 				ED11548B24FE788A006B6BBE /* SceneDelegate.swift in Sources */,
+				ED5152E625477C090071B394 /* UIViewController+MemeMe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

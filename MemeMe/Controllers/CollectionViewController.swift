@@ -9,7 +9,12 @@
 import UIKit
 
 class CollectionViewController: UICollectionViewController {
+
     
-    
+    @IBAction func createMeme(_ sender: Any) {
+        
+        presentMemeCreator()
+        
+    }
     
 }
