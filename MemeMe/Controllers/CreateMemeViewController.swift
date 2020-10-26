@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CreateMemeViewController.swift
 //  MemeMe
 //
 //  Created by Kirill Sidelkovsky on 01.09.2020.
@@ -9,7 +9,7 @@
 import UIKit
 import Device
 
-class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class CreateMemeViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
     
