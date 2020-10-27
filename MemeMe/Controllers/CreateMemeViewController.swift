@@ -232,7 +232,7 @@ class CreateMemeViewController: UIViewController, UITextFieldDelegate, UIImagePi
                 self.save(memedImage: memedImage)
             }
         }
-//        
+
         present(shareSheet, animated: true, completion: nil)
         
     }
@@ -241,7 +241,9 @@ class CreateMemeViewController: UIViewController, UITextFieldDelegate, UIImagePi
     
     func save(memedImage: UIImage) {
         
-        _ = Meme(topText: topTextField.text! as NSString, bottomText: bottomTextField.text! as NSString,  originalImage: imagePickerView.image, memedImage: memedImage)
+        let meme = Meme(topText: topTextField.text! as NSString, bottomText: bottomTextField.text! as NSString,  originalImage: imagePickerView.image, memedImage: memedImage)
+        
+        MemeDataStore.shared.save(meme: meme)
         
     }
     
