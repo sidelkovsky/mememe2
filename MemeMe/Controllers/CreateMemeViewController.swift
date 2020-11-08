@@ -231,6 +231,8 @@ class CreateMemeViewController: UIViewController, UITextFieldDelegate, UIImagePi
             if (completed) {
                 self.save(memedImage: memedImage)
             }
+            self.dismiss(animated: true, completion: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadMemes"), object: nil)
         }
 
         present(shareSheet, animated: true, completion: nil)

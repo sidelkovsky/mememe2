@@ -18,11 +18,14 @@ class TableViewController:UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        print("\(MemeDataStore.shared.getMemes().count)")
-        tableView.reloadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData(_:)), name: NSNotification.Name(rawValue: "reloadMemes"), object: nil)
         
     }
     
+    @objc func reloadTableData(_ notification: NSNotification) {
+        tableView.reloadData()
+    }
+        
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MemeDataStore.shared.getMemes().count
     }
